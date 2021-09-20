@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "commons-ui": [
+        "dist/commons-ui/commons-ui",
+        "dist/commons-ui"
+      ],
+      "commons-services": [
+        "dist/commons-services/commons-services",
+        "dist/commons-services"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "types": ["node"],
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": ["es2018", "dom"]
+  }
+}

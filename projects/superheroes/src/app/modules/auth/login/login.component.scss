@@ -1,0 +1,39 @@
+@import 'w2m-variables';
+
+.login-wrapper {
+  justify-content: center;
+  align-items: center;
+
+  .logo-wrapper {
+    align-content: center;
+    justify-content: center;
+
+    .logo {
+      max-width: 40%;
+      left: 35px;
+      position: relative;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+
+    mat-form-field {
+      mat-icon {
+        margin-right: 5px;
+      }
+    }
+
+    .footer-buttons {
+      margin: 24px 0 16px 0;
+      width: 100%;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

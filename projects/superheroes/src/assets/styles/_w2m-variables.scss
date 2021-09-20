@@ -1,0 +1,128 @@
+@import '~@angular/material/theming';
+
+$w2m-custom-typography: mat-typography-config($font-family: 'Inter, Poppins, sans-serif',
+  $title: mat-typography-level(18px, 30px, 500),
+  $subheading-2: mat-typography-level(14px, 26px, 400),
+  $subheading-1: mat-typography-level(13px, 22px, 400),
+  $body-2: mat-typography-level(12px, 20px, 500),
+  $body-1: mat-typography-level(12px, 18px, 400),
+  $caption: mat-typography-level(10px, 18px, 400),
+  $button: mat-typography-level(12px, 12px, 500),
+  $input: mat-typography-level(inherit, 1.125, 400),
+);
+
+$w2m-primary-colors: (50: #e9f2fc,
+  100: #d5e5f9,
+  200: #aacbf3,
+  300: #80b1ed,
+  400: #5597e7,
+  500: #2b7de1,
+  600: #2675dd,
+  700: #206ad9,
+  800: #1a60d5,
+  900: #104dcd,
+  A100: #fbfcff,
+  A200: #c8d7ff,
+  A400: #95b3ff,
+  A700: #7ba0ff,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$w2m-accent-colors: (50: #e5f6f3,
+  100: #cceee9,
+  200: #99ddd3,
+  300: #66cbbc,
+  400: #33baa6,
+  500: #00a990,
+  600: #00a288,
+  700: #00987d,
+  800: #008f73,
+  900: #007e61,
+  A100: #acffe8,
+  A200: #79ffda,
+  A400: #46ffcc,
+  A700: #2cffc5,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$primary: mat-palette($w2m-primary-colors, 500);
+$accent: mat-palette($w2m-accent-colors, 500);
+$warn: mat-palette($mat-red, 500);
+
+// Default theme Colors
+$w2m-theme: mat-light-theme($primary, $accent, $warn);
+
+$primary_color: mat-color($primary, 500);
+$accent_color: mat-color($accent);
+$warn_color: mat-color($warn);
+
+$font-family: map-get($w2m-custom-typography, font-family);
+
+$black-w2m-100: #333333;
+$black-w2m-80: #5c5c5c;
+$black-w2m-60: #858585;
+$black-w2m-40: #adadad;
+$black-w2m-20: #d6d6d6;
+$black-w2m-10: #eaeaea;
+$black-w2m-5: #f5f5f5;
+$black-w2m-3: #f9f9f9;
+$black-w2m-80-modal: rgba(92, 92, 92, 0.6);
+
+$blue-w2m-100-500: #2b7de1;
+$blue-w2m-80-400: #5597e7;
+$blue-w2m-60-300: #80b1ed;
+$blue-w2m-40-200: #aacbf3;
+$blue-w2m-50-10: #e9f2fc;
+$blue-w2m-20-100: #d5e5f9;
+$blue-w2m-5: #f4f8fd;
+$blue-w2m-a-700: #7ba0ff;
+$blue-w2m-a-400: #95b3ff;
+$blue-w2m-a-200: #c8d7ff;
+$blue-w2m-a-100: #fbfcff;
+
+$green-w2m-100: #00a990;
+$green-w2m-80: #33baa6;
+$green-w2m-60: #66cbbc;
+$green-w2m-40: #99ddd3;
+$green-w2m-20: #cceee9;
+$green-w2m-10: #e5f6f3;
+$green-w2m-5: #f2faf9;
+
+$red-w2m-100: #e13a19;
+$white-w2m-100: #ffffff;
+
+$elevation-b-dark-theme-00-dp: #121212;
+$color-03-on-primary-a-high-emphasis: #000000;
+$color-00-on-surface-2-dark-b-medium: rgba(255, 255, 255, 0.6);
+$color-00-on-surface-1-light-b-medium: rgba(0, 0, 0, 0.6);
+$states-01-black-l-light-f-selected: rgba(0, 0, 0, 0.08);
+
+$accent_color_contrast: mat-contrast($accent, 500);

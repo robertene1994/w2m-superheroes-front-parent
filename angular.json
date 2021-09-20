@@ -1,44 +1,60 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "w2m-superheroes-front-parent": {
+    "superheroes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/superheroes",
+      "sourceRoot": "projects/superheroes/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/w2m-superheroes-front-parent",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "outputPath": "dist/superheroes",
+            "index": "projects/superheroes/src/index.html",
+            "main": "projects/superheroes/src/main.ts",
+            "polyfills": "projects/superheroes/src/polyfills.ts",
+            "tsConfig": "projects/superheroes/tsconfig.app.json",
+            "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/superheroes/src/favicon.ico",
+              "projects/superheroes/src/assets/images",
+              "projects/superheroes/src/assets/webfonts"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/superheroes/src/assets/styles", "node_modules/@angular/material"]
+            },
             "styles": [
-              "src/styles.scss"
+              "projects/superheroes/src/styles.scss",
+              "projects/superheroes/src/assets/styles/w2m-theme.scss"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
+              "fileReplacements": [{
+                "replace": "projects/superheroes/src/environments/environment.ts",
+                "with": "projects/superheroes/src/environments/environment.prod.ts"
+              }],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
@@ -48,60 +64,110 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              ]
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "superheroes:build"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "w2m-superheroes-front-parent:build:production"
-            },
-            "development": {
-              "browserTarget": "w2m-superheroes-front-parent:build:development"
+              "browserTarget": "superheroes:build:production"
             }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "w2m-superheroes-front-parent:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "main": "projects/superheroes/src/test.ts",
+            "polyfills": "projects/superheroes/src/polyfills.ts",
+            "tsConfig": "projects/superheroes/tsconfig.spec.json",
+            "karmaConfig": "projects/superheroes/karma.conf.js",
+            "assets": ["projects/superheroes/src/favicon.ico", "projects/superheroes/src/assets"],
+            "styles": ["projects/superheroes/src/styles.scss"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/superheroes/tsconfig.app.json",
+              "projects/superheroes/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "commons-services": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/commons-services",
+      "sourceRoot": "projects/commons-services/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/commons-services/tsconfig.lib.json",
+            "project": "projects/commons-services/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/commons-services/src/test.ts",
+            "tsConfig": "projects/commons-services/tsconfig.spec.json",
+            "karmaConfig": "projects/commons-services/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["projects/commons-services/tsconfig.lib.json", "projects/commons-services/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "commons-ui": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/commons-ui",
+      "sourceRoot": "projects/commons-ui/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/commons-ui/tsconfig.lib.json",
+            "project": "projects/commons-ui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/commons-ui/src/test.ts",
+            "tsConfig": "projects/commons-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/commons-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["projects/commons-ui/tsconfig.lib.json", "projects/commons-ui/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <img class="logo" src="assets/images/logo-white.svg" />
+    <span>W2M: Superheroes</span>
+    <span class="toolbar-spacer"></span>
+    <div *ngIf="sessionService.isLoggedIn()">
+      <span class="user-name">{{ sessionService.username }} ({{ sessionService.email }})</span>
+      <button mat-mini-fab color="accent" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<w2m-spinner></w2m-spinner>

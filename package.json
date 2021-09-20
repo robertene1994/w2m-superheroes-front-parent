@@ -1,29 +1,42 @@
 {
   "name": "w2m-superheroes-front-parent",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve superheroes",
+    "start-dev": "npm run start --watch",
     "build": "ng build",
+    "build-commons-services": "ng build commons-services --watch",
+    "build-commons-ui": "ng build commons-ui --watch",
+    "build-all-libs": " ng build commons-services && ng build commons-ui",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
+  "license": "MIT",
+  "author": "Robert Stefanita Ene",
+  "description": "Sistema que permite el mantenimiento de superhéroes a través de un sistema de seguridad basado en la autenticación de los usuarios mediante un esquema JWT.",
   "dependencies": {
+    "@angular-devkit/build-ng-packagr": "0.1002.0",
     "@angular/animations": "~12.2.0",
+    "@angular/cdk": "12.2.6",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/flex-layout": "12.0.0-beta.35",
     "@angular/forms": "~12.2.0",
+    "@angular/material": "12.2.6",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "jwt-claims": "1.0.1",
+    "ngx-spinner": "12.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.2.6",
+    "@angular-devkit/build-angular": "12.2.6",
     "@angular/cli": "~12.2.6",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",
@@ -34,6 +47,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "12.2.1",
     "typescript": "~4.3.5"
   }
 }

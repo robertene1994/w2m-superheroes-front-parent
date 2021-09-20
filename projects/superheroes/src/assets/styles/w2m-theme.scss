@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+@import './w2m-variables';
+@import './w2m-classes';
+@import './w2m-fonts';
+@import './custom-material';
+
+@include mat-core($w2m-custom-typography);
+@include angular-material-theme($w2m-theme);
