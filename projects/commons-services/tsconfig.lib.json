@@ -5,8 +5,8 @@
     "target": "es2017",
     "module": "es6",
     "declaration": true,
-    "moduleResolution": "node",
     "inlineSources": true,
+    "moduleResolution": "node",
     "types": [],
     "lib": [
       "dom",

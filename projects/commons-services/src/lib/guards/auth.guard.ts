@@ -12,6 +12,12 @@ import { switchMap } from 'rxjs/operators';
 
 import { SessionService } from '../session/session.service';
 
+/**
+ * Servicio para la autenticaciónde los usuarios de la aplicación para
+ * cada una de las rutas/pantallas disponibles.
+ *
+ * @author Robert Ene
+ */
 @Injectable({
   providedIn: 'root',
 })

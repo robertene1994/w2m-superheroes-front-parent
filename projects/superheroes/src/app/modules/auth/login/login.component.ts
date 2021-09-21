@@ -3,11 +3,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
-import { LoginResponse, SessionService } from 'commons-services';
-
-import { LoginRequest } from 'commons-services';
+import { LoginRequest, LoginResponse, SessionService } from 'commons-services';
 import { SnackBarService } from 'commons-ui';
 
+/**
+ * Componente de la pantalla que permite a los usuarios el autenticarse
+ * en la aplicación.
+ *
+ * @author Robert Ene
+ */
 @Component({
   selector: 'w2m-login',
   templateUrl: './login.component.html',

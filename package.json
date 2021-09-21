@@ -15,7 +15,7 @@
   "private": true,
   "license": "MIT",
   "author": "Robert Stefanita Ene",
-  "description": "Sistema que permite el mantenimiento de superhéroes a través de un sistema de seguridad basado en la autenticación de los usuarios mediante un esquema JWT.",
+  "description": "Aplicación que permite el mantenimiento de superhéroes a través de un sistema de seguridad basado en la autenticación de los usuarios mediante un esquema JWT.",
   "dependencies": {
     "@angular-devkit/build-ng-packagr": "0.1002.0",
     "@angular/animations": "~12.2.0",

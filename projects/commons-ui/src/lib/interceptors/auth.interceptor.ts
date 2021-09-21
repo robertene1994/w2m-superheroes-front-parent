@@ -10,6 +10,12 @@ import { Observable } from 'rxjs';
 
 import { SessionService } from 'commons-services';
 
+/**
+ * Servicio (interceptor) que gestiona la autenticación del usuario
+ * para todas las peticiones HTTP salientes.
+ *
+ * @author Robert Ene
+ */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   private readonly AUTH_HEADER: string = 'Authorization';

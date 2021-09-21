@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * Servicio responsable de la gestión del almacenamiento local (local storage)
+ * del navegador.
+ *
+ * @author Robert Ene
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  storage: Storage;
-  cache: { [key: string]: string } = {};
+  private storage: Storage;
+  private cache: { [key: string]: string } = {};
 
   constructor() {
-    console.log('LocalStorage Service');
+    console.log('LocalStorageService');
     this.storage = localStorage;
   }
 

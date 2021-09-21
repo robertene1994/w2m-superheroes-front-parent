@@ -6,6 +6,12 @@ import { delay } from 'rxjs/operators';
 
 import { SpinnerService } from 'commons-services';
 
+/**
+ * Componente que tiene la responsabilidad de gestionar el cliclo de
+ * vida del spinner de la aplicación.
+ *
+ * @author Robert Ene
+ */
 @Component({
   selector: 'w2m-spinner',
   templateUrl: './spinner.component.html',

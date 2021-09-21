@@ -6,6 +6,12 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 
+/**
+ * Servicio responsable de las operaciones relacionadas con las notificaciones
+ * (mensajes) que se muestran al usuario.
+ *
+ * @author Robert Ene
+ */
 @Injectable({
   providedIn: 'root',
 })

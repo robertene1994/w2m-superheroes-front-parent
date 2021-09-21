@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -5,7 +6,6 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
@@ -14,15 +14,24 @@ import { ErrorInfo, SpinnerService } from 'commons-services';
 
 import { SnackBarService } from '../services/snack-bar.service';
 
+/**
+ * Servicio (interceptor) que gestiona el manejo de errores
+ * para todas las peticiones HTTP salientes.
+ *
+ * @author Robert Ene
+ */
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  private numSpinnerShows = 0;
-  private excludedUrls = [];
+  private numSpinnerShows: number;
+  private excludedUrls: string[];
 
   constructor(
     private spinnerService: SpinnerService,
     private snackBarService: SnackBarService
-  ) {}
+  ) {
+    this.numSpinnerShows = 0;
+    this.excludedUrls = [];
+  }
 
   intercept(
     request: HttpRequest<any>,
@@ -38,7 +47,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap(
         (event: HttpEvent<any>) => event,
-        (response) => this.defaultHttpErrorHandler(response)
+        (response) => this.httpErrorHandler(response)
       ),
       finalize(() => {
         if (!this.spinnerExcludedUrl(request.url)) {
@@ -51,7 +60,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     );
   }
 
-  defaultHttpErrorHandler(response: HttpErrorResponse): void {
+  private httpErrorHandler(response: HttpErrorResponse): void {
     console.log('HTTP Error handler');
     let message: string;
     if (response.error && response.error.message) {
@@ -74,15 +83,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         (response.status >= 400 && response.status <= 500)
       ) {
         message = `¡Error no esperado accediendo al servidor [HTTP: ${response.status}]!`;
-        console.error(response.error);
       } else {
         message =
           '¡El servidor no está disponible en estos momentos! ¡Por favor, pruebe más tarde!';
       }
-
-      message = `Error no esperado: ${message}`;
     }
-
     this.snackBarService.showMessage(message);
     console.error(`${message}. HTTP STATUS: ${response.status}`);
   }

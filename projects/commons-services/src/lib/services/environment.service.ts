@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * Servicio para la gestión del entorno (environment) de toda la aplicación
+ * y las variables asociadas al mismo.
+ *
+ * @author Robert Ene
+ */
 @Injectable({
   providedIn: 'root',
 })

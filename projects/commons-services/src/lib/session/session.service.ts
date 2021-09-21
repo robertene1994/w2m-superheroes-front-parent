@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { Observable, of } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
+
 import * as decodeJwt from 'jwt-claims';
 
 import { EnvironmentService } from './../services/environment.service';
@@ -14,6 +16,11 @@ import {
   TokenData,
 } from '../model/user-session';
 
+/**
+ * Servicio responsable de la gestión de la sesión de los usuarios.
+ *
+ * @author Robert Ene
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -28,7 +35,7 @@ export class SessionService {
     private environmentService: EnvironmentService,
     private localStorageService: LocalStorageService
   ) {
-    console.log('Session Service: ' + this.PATH);
+    console.log('SessionService: ' + this.PATH);
   }
 
   set(key: string, value: any): void {

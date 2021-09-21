@@ -1,10 +1,10 @@
-/*
- * Public API Surface of commons-services
+/**
+ * API pública correspondiente a la librería `commons-services`.
+ *
+ * @author Robert Ene
  */
-
 export * from './lib/commons/commons';
 export * from './lib/guards/auth.guard';
-export * from './lib/model/enums/role.enum';
 export * from './lib/model/user-session';
 export * from './lib/model/pagination';
 export * from './lib/model/superhero';

@@ -1,5 +1,5 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -13,6 +13,11 @@ import {
 } from '../model/pagination';
 import { Superhero } from './../model/superhero';
 
+/**
+ * Servicio responasble de la gestión de los superheroes (`Superhero`).
+ *
+ * @author Robert Ene
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -23,7 +28,7 @@ export class SuperheroService implements PaginationService<Superhero> {
     private http: HttpClient,
     private environmentService: EnvironmentService
   ) {
-    console.log('Superheroes Service: ' + this.PATH);
+    console.log('SuperheroService: ' + this.PATH);
   }
 
   getAll(): Observable<Superhero[]> {

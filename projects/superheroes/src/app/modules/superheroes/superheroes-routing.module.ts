@@ -15,6 +15,11 @@ const routes: Routes = [
   },
 ];
 
+/**
+ * Descriptor que define las rutas del submódulo `superheroes`.
+ *
+ * @author Robert Ene
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

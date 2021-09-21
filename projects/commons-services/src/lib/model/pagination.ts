@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 export type FilterObject = { [param: string]: string | string[] };
 
 export class PaginationDataRequest {
-  page: number;
-  pageSize: number;
-  sortFields: string[];
-  sortDir: 'asc' | 'desc';
+  page!: number;
+  pageSize!: number;
+  sortFields!: string[];
+  sortDir!: 'asc' | 'desc';
   filter?: FilterObject;
 
   public toHttpParams(): HttpParams {
@@ -29,7 +29,7 @@ export class PaginationDataRequest {
 export class PageData<T> {
   content: T[];
   total: number;
-  page_params: {
+  page_params!: {
     pageSize: number;
     page: number;
     sortDirection?: 'ASC' | 'DESC';

@@ -1,13 +1,13 @@
 export class BaseEntity<T> {
-  public id: T;
+  id!: T;
 }
 
 export class ErrorInfo {
-  code: number;
-  message: string;
+  code!: number;
+  message!: string;
   data?: { [key: string]: any };
 }
 
 export class ErrorResponse {
-  error: ErrorInfo;
+  error!: ErrorInfo;
 }

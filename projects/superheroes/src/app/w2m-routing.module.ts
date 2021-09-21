@@ -30,6 +30,12 @@ const routes: Routes = [
   { path: '**', redirectTo: 'auth/login' },
 ];
 
+/**
+ * Módulo que define las principales rutas de la aplicación e implementa la
+ * carga diferida (lazy loading) para los diferentes submódulos.
+ *
+ * @author Robert Ene
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

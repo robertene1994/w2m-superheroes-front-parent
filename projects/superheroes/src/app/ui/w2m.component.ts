@@ -4,6 +4,12 @@ import { Router } from '@angular/router';
 
 import { SessionService } from 'commons-services';
 
+/**
+ * Componente principal (raíz) de la aplicación que se encarga del manejo de la barra
+ * de navegacion superior y el spinner correspondiente.
+ *
+ * @author Robert Ene
+ */
 @Component({
   selector: 'w2m-root',
   templateUrl: './w2m.component.html',
