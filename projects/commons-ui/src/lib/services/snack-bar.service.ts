@@ -28,7 +28,7 @@ export class SnackBarService {
     };
   }
 
-  public showMessage(message: string): void {
+  showMessage(message: string): void {
     this.snackBar.open(message, 'Cerrar', this.snackBarConfig);
   }
 }

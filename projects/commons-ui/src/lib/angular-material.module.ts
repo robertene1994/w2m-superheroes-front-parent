@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CdkTableModule } from '@angular/cdk/table';
 
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatButtonModule } from '@angular/material/button';
 import {
   MatNativeDateModule,
   MatRippleModule,
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -38,9 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatToolbarModule,
     MatFormFieldModule,
     MatRippleModule,
-    MatDatepickerModule,
     MatDialogModule,
-    MatExpansionModule,
     MatNativeDateModule,
     MatPaginatorModule,
     MatSelectModule,
@@ -49,7 +45,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatTooltipModule,
     MatDatepickerModule,
-    CdkTableModule,
     FlexLayoutModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es' }],
@@ -63,9 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatBadgeModule,
     MatRippleModule,
-    MatDatepickerModule,
     MatDialogModule,
-    MatExpansionModule,
     MatNativeDateModule,
     MatPaginatorModule,
     MatSelectModule,
@@ -74,7 +67,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatTooltipModule,
     MatDatepickerModule,
-    CdkTableModule,
     FlexLayoutModule,
   ],
 })

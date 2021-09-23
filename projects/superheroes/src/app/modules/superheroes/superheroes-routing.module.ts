@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SuperheroesComponent } from './superheroes/superheroes.component';
+import { CreateOrUpdateSuperheroComponent } from './create-or-update-superhero/create-or-update-superhero.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,14 @@ const routes: Routes = [
       {
         path: 'superheroes',
         component: SuperheroesComponent,
+      },
+      {
+        path: 'superheroes/create',
+        component: CreateOrUpdateSuperheroComponent,
+      },
+      {
+        path: 'superheroes/:id',
+        component: CreateOrUpdateSuperheroComponent,
       },
     ],
   },

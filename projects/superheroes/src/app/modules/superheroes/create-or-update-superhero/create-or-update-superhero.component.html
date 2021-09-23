@@ -1,0 +1,107 @@
+<div fxLayout="column" class="create-or-update-superhero-wrapper">
+  <div fxLayout="row" fxFill fxLayoutAlign="space-between start" class="w-100">
+    <h2 class="title">{{ isUpdate ? 'Modificar' : 'Crear' }} Superhéroe</h2>
+  </div>
+  <form [formGroup]="form" class="w-100">
+    <div gdColumns="repeat(12, 1fr)" gdGap=".5rem 1rem" class="form-group">
+      <mat-form-field gdColumn="auto / span 4">
+        <mat-label>Nombre</mat-label>
+        <mat-icon matPrefix color="primary">badge</mat-icon>
+        <input w2mUppercase matInput type="text" required formControlName="firstName">
+        <mat-error *ngIf="form.get('firstName').hasError('required')">
+          El nombre del superhéroe es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 4">
+        <mat-label>Apellidos</mat-label>
+        <mat-icon matPrefix color="primary">badge</mat-icon>
+        <input matInput type="text" required formControlName="lastName">
+        <mat-error *ngIf="form.get('lastName').hasError('required')">
+          Los apellidos del superhéroe son <strong>obligatorios</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 4">
+        <mat-label>Alias</mat-label>
+        <mat-icon matPrefix color="primary">perm_identity</mat-icon>
+        <input matInput type="text" required formControlName="alias">
+        <mat-error *ngIf="form.get('alias').hasError('required')">
+          El alias del superhéroe es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 3">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <mat-icon matPrefix color="primary">event</mat-icon>
+        <input matInput [matDatepicker]="birthdatePicker" disabled required formControlName="birthdate">
+        <mat-datepicker-toggle matSuffix [for]="birthdatePicker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #birthdatePicker disabled="false"></mat-datepicker>
+        <mat-error *ngIf="form.get('birthdate').hasError('required')">
+          La fecha de nacimiento del superhéroe es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 3">
+        <mat-label>Ocupación</mat-label>
+        <mat-icon matPrefix color="primary">work</mat-icon>
+        <input matInput type="text" required formControlName="occupation">
+        <mat-error *ngIf="form.get('occupation').hasError('required')">
+          La ocupación del superhéroe es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 3">
+        <mat-label>Estatura</mat-label>
+        <mat-icon matPrefix color="primary">height</mat-icon>
+        <input matInput type="number" min="0.01" max="9.99" step=".01" required formControlName="height">
+        <span matSufix class="sufix">m</span>
+        <mat-error *ngIf="form.get('height').hasError('required')">
+          La estatura del superhéroe es <strong>obligatorio</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('height').hasError('min')">
+          La estatura del superhéroe debe ser superior a <strong>0.01 m</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('height').hasError('max')">
+          La estatura del superhéroe debe ser inferior a <strong>9.99 m</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 3">
+        <mat-label>Peso</mat-label>
+        <mat-icon matPrefix color="primary">fitness_center</mat-icon>
+        <input matInput type="number" min="0.1" max="999.9" step=".1" required formControlName="weight">
+        <span matSufix class="sufix">kg</span>
+        <mat-error *ngIf="form.get('weight').hasError('required')">
+          El peso del superhéroe es <strong>obligatorio</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('weight').hasError('min')">
+          El peso del superhéroe debe ser superior a <strong>0.1 kg</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('weight').hasError('max')">
+          El peso del superhéroe debe ser inferior a <strong>999.9 kg</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field gdColumn="auto / span 12">
+        <mat-label>Biografía</mat-label>
+        <textarea matInput formControlName="biography" cdkTextareaAutosize cdkAutosizeMinRows="5"
+          cdkAutosizeMaxRows="5"></textarea>
+        <mat-error *ngIf="form.get('biography').hasError('required')">
+          La biografía del superhéroe es <strong>obligatoria</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="16px" class="w-100">
+      <button mat-mini-fab matTooltip="Volver atrás" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button mat-mini-fab color="primary" matTooltip="{{ isUpdate ? 'Modificar' : 'Crear' }} superhéroe"
+        [disabled]="!form.valid" (click)="createOrUpdateSuperhero()">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

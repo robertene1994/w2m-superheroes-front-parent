@@ -1,0 +1,34 @@
+@import 'w2m-variables';
+
+.create-or-update-superhero-wrapper {
+  width: 80%;
+  margin: 5rem auto;
+
+  .form-group {
+    mat-form-field {
+      ::ng-deep {
+        .mat-form-field-infix {
+          display: flex;
+        }
+
+      }
+
+      ::ng-deep {
+        mat-datepicker-toggle {
+          button {
+            color: $primary_color;
+            font-size: 24px;
+          }
+        }
+      }
+
+      .sufix {
+        color: $primary_color;
+      }
+
+      textarea {
+        resize: none;
+      }
+    }
+  }
+}

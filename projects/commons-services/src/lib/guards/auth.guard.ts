@@ -10,7 +10,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { SessionService } from '../session/session.service';
+import { SessionService } from '../services/session.service';
 
 /**
  * Servicio para la autenticaciónde los usuarios de la aplicación para
@@ -39,7 +39,15 @@ export class AuthGuard implements CanActivate {
     return this.sessionService.isAuthenticated().pipe(
       switchMap((isAuth) => {
         console.log('Usuario autenticado (Token válido): ', isAuth);
-        return !!isAuth ? of(true) : of(false);
+        if (!!isAuth) {
+          return of(true);
+        } else {
+          this.sessionService.logout();
+          this.router.navigate(['/auth/login'], {
+            queryParams: { expiredSession: true },
+          });
+          return of(false);
+        }
       })
     );
   }

@@ -38,12 +38,13 @@ export class SuperheroService implements PaginationService<Superhero> {
   create(superhero: Superhero): Observable<Superhero> {
     return this.http.post<Superhero>(`${this.PATH}/`, superhero).pipe(take(1));
   }
+
   getById(id: number): Observable<Superhero> {
     return this.http.get<Superhero>(`${this.PATH}/${id}`).pipe(take(1));
   }
 
-  deleteById(id: number): Observable<Superhero> {
-    return this.http.delete<Superhero>(`${this.PATH}/${id}`).pipe(take(1));
+  deleteById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.PATH}/${id}`).pipe(take(1));
   }
 
   update(superhero: Superhero): Observable<Superhero> {
@@ -52,9 +53,9 @@ export class SuperheroService implements PaginationService<Superhero> {
       .pipe(take(1));
   }
 
-  getPage(pagRequest: PaginationDataRequest): Observable<PageData<Superhero>> {
-    console.log('Get page:' + `${this.PATH}/page`);
-    const params: HttpParams = pagRequest.toHttpParams();
+  getPage(pageRequest: PaginationDataRequest): Observable<PageData<Superhero>> {
+    console.log('GetPage: ' + `${this.PATH}/page`);
+    const params: HttpParams = pageRequest.toHttpParams();
     return this.http
       .get<PageData<Superhero>>(`${this.PATH}/page`, { params })
       .pipe(take(1));

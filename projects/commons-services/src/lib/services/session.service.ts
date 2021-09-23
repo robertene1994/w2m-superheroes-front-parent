@@ -6,7 +6,7 @@ import { catchError, map, take } from 'rxjs/operators';
 
 import * as decodeJwt from 'jwt-claims';
 
-import { EnvironmentService } from './../services/environment.service';
+import { EnvironmentService } from './environment.service';
 import { LocalStorageService } from './local-storage.service';
 
 import {
@@ -14,7 +14,7 @@ import {
   LoginRequest,
   UserSessionData,
   TokenData,
-} from '../model/user-session';
+} from '../model/session';
 
 /**
  * Servicio responsable de la gestión de la sesión de los usuarios.

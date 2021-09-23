@@ -8,6 +8,8 @@ export * from './lib/interceptors/http-error.interceptor';
 export * from './lib/directives/uppercase.directive';
 export * from './lib/directives/directives.module';
 export * from './lib/services/snack-bar.service';
+export * from './lib/components/dialog/confirmation-dialog.component';
+export * from './lib/components/dialog/confirmation-dialog.module';
 export * from './lib/components/spinner/spinner.component';
 export * from './lib/components/spinner/spinner.module';
 export * from './lib/commons-ui.module';

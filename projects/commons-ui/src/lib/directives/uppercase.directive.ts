@@ -1,4 +1,5 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
+import { NgControl } from '@angular/forms';
 
 /**
  * Directiva que transforma a mayúsculas el contenido de un determinado input.
@@ -6,12 +7,15 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
  * @author Robert Ene
  */
 @Directive({
-  selector: '[uppercase]',
+  selector: '[formControlName][w2mUppercase]',
 })
 export class UppercaseDirective {
-  constructor(public ref: ElementRef) {}
+  constructor(private ngControl: NgControl) {}
 
-  @HostListener('input', ['$event']) onInput(event: any) {
-    this.ref.nativeElement.value = event.target.value.toUpperCase();
+  @HostListener('input', ['$event.target'])
+  onInput(input: HTMLInputElement): void {
+    const caretPosition = input.selectionStart;
+    this.ngControl.control.setValue(input.value.toUpperCase());
+    input.setSelectionRange(caretPosition, caretPosition);
   }
 }

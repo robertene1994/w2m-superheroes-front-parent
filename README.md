@@ -1,27 +1,37 @@
-# W2M: Superheroes
+<h1 align="center">
+	<img src="https://cdn0.iconfinder.com/data/icons/business-concepts-3/399/Superhero-512.png" alt="W2M: Superheroes" width="200">
+	<br>
+	W2M: Superheroes
+</h1>
+<h4 align="center">
+	<img src="https://forthebadge.com/images/badges/made-with-typescript.svg"/>
+	<img src="https://forthebadge.com/images/badges/uses-html.svg"/>
+    <img src="https://forthebadge.com/images/badges/uses-css.svg"/>
+</h4>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+### Esta aplicación Web permite a los usuarios autenticados la gestión de superhéroes, todo ello a través de un sistema que ha sido implementado utilizando como base el framework Angular junto a Angular Material como librería de componentes visuales.
 
-## Development server
+## Instalación 🔧
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para instalar y esta aplicación debes utilizar [npm](https://www.npmjs.com/), el sistema de gestión de dependencias de [Node](https://nodejs.org/).
 
-## Code scaffolding
+```bash
+npm install
+npm run build-commons-services
+npm run build-commons-ui
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Scripts 📜
 
-## Build
+### `npm start`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ejecuta la aplicación en el modo de desarrollo.
+Acceder a [http://localhost:4200](http://localhost:4200) para visualizarla en el navegador.
 
-## Running unit tests
+### `npm run build`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Empaqueta la aplicación para producción en el directorio `dist`. ¡La aplicación está lista para el despliegue!
 
-## Running end-to-end tests
+## Licencia 🔑
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[![MIT](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE)

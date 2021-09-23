@@ -1,16 +1,15 @@
 import { HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
-export type FilterObject = { [param: string]: string | string[] };
+import { Observable } from 'rxjs';
 
 export class PaginationDataRequest {
   page!: number;
   pageSize!: number;
   sortFields!: string[];
-  sortDir!: 'asc' | 'desc';
-  filter?: FilterObject;
+  sortDir!: 'asc' | 'desc' | '';
+  filter?: { [param: string]: string | string[] };
 
-  public toHttpParams(): HttpParams {
+  toHttpParams(): HttpParams {
     let params = new HttpParams({ fromObject: this.filter });
     params = params.append('page', `${this.page}`);
     params = params.append('pageSize', `${this.pageSize}`);

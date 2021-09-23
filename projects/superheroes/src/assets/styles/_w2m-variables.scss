@@ -77,7 +77,7 @@ $primary: mat-palette($w2m-primary-colors, 500);
 $accent: mat-palette($w2m-accent-colors, 500);
 $warn: mat-palette($mat-red, 500);
 
-// Default theme Colors
+// Colores por defecto del tema
 $w2m-theme: mat-light-theme($primary, $accent, $warn);
 
 $primary_color: mat-color($primary, 500);

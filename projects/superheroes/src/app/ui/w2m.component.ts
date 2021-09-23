@@ -6,7 +6,7 @@ import { SessionService } from 'commons-services';
 
 /**
  * Componente principal (raíz) de la aplicación que se encarga del manejo de la barra
- * de navegacion superior y el spinner correspondiente.
+ * de navegacion superior y el spinner de carga.
  *
  * @author Robert Ene
  */

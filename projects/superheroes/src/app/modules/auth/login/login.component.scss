@@ -2,6 +2,7 @@
 
 .login-wrapper {
   justify-content: center;
+  margin: 5rem auto;
   align-items: center;
 
   .logo-wrapper {
@@ -21,19 +22,11 @@
     width: 80%;
     margin: auto;
 
-    mat-form-field {
-      mat-icon {
-        margin-right: 5px;
-      }
-    }
-
     .footer-buttons {
       margin: 24px 0 16px 0;
       width: 100%;
-
-      button {
-        width: 100%;
-      }
+      display: flex;
+      justify-content: center;
     }
   }
 }

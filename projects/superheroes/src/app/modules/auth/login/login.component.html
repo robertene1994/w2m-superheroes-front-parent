@@ -1,4 +1,4 @@
-<div fxLayout="row" fxFill placeContent="center center" class="login-wrapper">
+<div fxLayout="row" fxFill class="login-wrapper">
   <form [formGroup]="form">
     <div fxLayout="row" class="logo-wrapper">
       <img class="logo" src="assets/images/logo-black.svg" alt="Logo de la aplicación">
@@ -12,6 +12,7 @@
           El usuario es <strong>obligatorio</strong>
         </mat-error>
       </mat-form-field>
+
       <mat-form-field>
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" required formControlName="password">
@@ -21,8 +22,8 @@
         </mat-error>
       </mat-form-field>
       <div class="footer-buttons">
-        <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="login()">
-          Iniciar Sesión
+        <button mat-mini-fab color="primary" matTooltip="Iniciar sesión" [disabled]="!form.valid" (click)="login()">
+          <mat-icon>login</mat-icon>
         </button>
       </div>
     </div>

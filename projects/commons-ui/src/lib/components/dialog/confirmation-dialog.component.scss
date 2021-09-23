@@ -1,0 +1,9 @@
+@import './../../../../../superheroes/src/assets/styles/w2m-variables';
+
+.confirmation-dialog-wrapper {
+  font-family: $font-family;
+
+  .mat-dialog-title {
+    color: $accent_color;
+  }
+}

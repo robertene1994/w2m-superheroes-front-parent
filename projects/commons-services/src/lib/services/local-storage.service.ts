@@ -44,7 +44,7 @@ export class LocalStorageService {
     return value != null ? value : defaultValue;
   }
 
-  public allKeys(): string[] {
+  allKeys(): string[] {
     const keys: string[] = [];
     let i = 0;
     while (this.storage.key(i) != null) {
@@ -55,7 +55,7 @@ export class LocalStorageService {
     return keys;
   }
 
-  public remove(key: string): any {
+  remove(key: string): any {
     const value = this.get(key);
     this.storage.removeItem(key);
     delete this.cache[key];

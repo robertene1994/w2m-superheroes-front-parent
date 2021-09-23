@@ -5,7 +5,7 @@
     <span class="toolbar-spacer"></span>
     <div *ngIf="sessionService.isLoggedIn()">
       <span class="user-name">{{ sessionService.username }} ({{ sessionService.email }})</span>
-      <button mat-mini-fab color="accent" (click)="logout()">
+      <button mat-mini-fab color="accent" matTooltip="Cerrar sesión" (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
     </div>

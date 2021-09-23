@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
+import { W2mRoutingModule } from './w2m-routing.module';
+import { W2mComponent } from './ui/w2m.component';
+
 import { CommonsServicesModule, EnvironmentService } from 'commons-services';
 import {
   CommonsUiModule,
@@ -15,9 +18,6 @@ import {
 } from 'commons-ui';
 
 import { environment } from '../environments/environment';
-
-import { W2mRoutingModule } from './w2m-routing.module';
-import { W2mComponent } from './ui/w2m.component';
 
 /**
  * Descriptor del módulo principal de la aplicación.

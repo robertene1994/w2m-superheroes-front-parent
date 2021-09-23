@@ -1,6 +1,44 @@
 @import 'w2m-variables';
 
 .superheroes-wrapper {
-  justify-content: center;
-  align-items: center;
+  width: 80%;
+  margin: 5rem auto;
+
+  .superheroes-table-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 350px;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .superheroes-table {
+    width: 100%;
+
+    tr {
+      th {
+        font-size: 16px;
+        background-color: $primary_color;
+        color: $black-w2m-10;
+        cursor: pointer;
+
+        ::ng-deep {
+          .mat-sort-header-arrow {
+            color: $white-w2m-100 !important;
+          }
+        }
+      }
+    }
+
+    caption {
+      display: none;
+    }
+
+    .actions-column-header {
+      text-align: center;
+    }
+  }
 }

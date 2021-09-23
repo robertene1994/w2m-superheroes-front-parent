@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { AuthGuard } from './guards/auth.guard';
-import { LocalStorageService } from './session/local-storage.service';
-import { SessionService } from './session/session.service';
+import { FilterService } from './services/filter.service';
+import { LocalStorageService } from './services/local-storage.service';
+import { SessionService } from './services/session.service';
 import { SpinnerService } from './services/spinner.service';
 import { SuperheroService } from './services/superhero.service';
 
@@ -17,6 +18,7 @@ import { SuperheroService } from './services/superhero.service';
   exports: [],
   providers: [
     AuthGuard,
+    FilterService,
     LocalStorageService,
     SessionService,
     SpinnerService,
